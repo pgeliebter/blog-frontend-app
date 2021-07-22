@@ -7,6 +7,7 @@
         <span class="post-image"><img v-bind:src="post.image" /></span>
         <span class="post-body">{{ post.body }}</span>
       </div>
+      <router-link :to="`/posts/${post.id}/edit`"><button>Fuggehdaboutit</button></router-link>
       <router-link to="/posts">Go back to all da posts</router-link>
     </div>
   </div>
@@ -23,7 +24,7 @@ export default {
     };
   },
   created: function () {
-    axios.get("/posts/1").then((response) => {
+    axios.get(`/posts/${this.$route.params.id}`).then((response) => {
       console.log(response);
       this.post = response.data;
     });

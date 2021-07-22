@@ -9,7 +9,9 @@
         <span class="post-image"><img v-bind:src="post.image" /></span>
         <span class="post-body">{{ post.body }}</span>
       </div>
-      <button v-on:click="moreInfo()">More Info!</button>
+      <router-link v-bind:to="`/posts/${post.id}`">
+        <button v-on:click="moreInfo()">More Info!</button>
+      </router-link>
 
       <hr />
     </div>

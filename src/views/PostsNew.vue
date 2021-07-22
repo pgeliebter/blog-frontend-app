@@ -4,7 +4,7 @@
     <form class="flex-down" v-on:submit.prevent="newPost()">
       <input type="text" placeholder="Title" v-model="postParams.title" />
       <input type="text" style="font-family: arial" placeholder="Body" v-model="postParams.body" />
-      <input type="text" placeholder="Image URL" v-model="postParams.image_url" />
+      <input type="text" placeholder="Image URL" v-model="postParams.image" />
       <input type="submit" value="submit" />
     </form>
   </div>
