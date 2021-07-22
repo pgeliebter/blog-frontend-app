@@ -1,17 +1,13 @@
 <template>
-  <div class="posts-index">
+  <div class="posts-new">
     <h1>{{ message }}</h1>
-    <form></form>
-
-    <div v-for="post in posts" :key="post.id">
+    <div class="flex-down">
       <h2>{{ post.title }}</h2>
       <div class="post-image-body">
         <span class="post-image"><img v-bind:src="post.image" /></span>
         <span class="post-body">{{ post.body }}</span>
       </div>
-      <button v-on:click="moreInfo()">More Info!</button>
-
-      <hr />
+      <router-link to="/posts">Go back to all da posts</router-link>
     </div>
   </div>
 </template>
@@ -22,23 +18,15 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Welcome Crumb Cake",
-      posts: [1, 2, 3],
+      message: "Welcome to the future of blogs:",
+      post: {},
     };
   },
   created: function () {
-    this.indexPosts();
-  },
-  methods: {
-    indexPosts: function () {
-      axios.get("/posts").then((response) => {
-        this.posts = response.data;
-        console.log(response.data);
-      });
-    },
-    moreInfo: function () {
-      console.log("you found me!");
-    },
+    axios.get("/posts/1").then((response) => {
+      console.log(response);
+      this.post = response.data;
+    });
   },
 };
 </script>
@@ -59,8 +47,11 @@ export default {
 .flex-down {
   display: flex;
   align-items: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   justify-content: space-between;
+}
+.flex-down * {
+  margin: 10px;
 }
 </style>
