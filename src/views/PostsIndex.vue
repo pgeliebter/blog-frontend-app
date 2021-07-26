@@ -1,6 +1,25 @@
 <template>
   <div class="posts-index">
-    <h1>{{ message }}</h1>
+    <div class="d-flex flex-column align-items-center">
+      <div class="card mb-3" style="max-width: 540px" v-for="post in posts" :key="post.id">
+        <router-link v-bind:to="`/posts/${post.id}`">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img v-bind:src="post.image" class="img-fluid rounded-start" v-bind:alt="post.title" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted">Last updated never mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </router-link>
+      </div>
+    </div>
+
+    <!-- <h1>{{ message }}</h1>
     <form></form>
 
     <div v-for="post in posts" :key="post.id">
@@ -14,7 +33,7 @@
       </router-link>
 
       <hr />
-    </div>
+     </div> -->
   </div>
 </template>
 
@@ -45,6 +64,7 @@ export default {
 };
 </script>
 
+//
 <style>
 .post-image-body {
   display: flex;

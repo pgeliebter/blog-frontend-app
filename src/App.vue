@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link>
       |
       <router-link to="/about">About</router-link>
       |
-      <!-- <router-link to="/secret">Secret</router-link>
-      | -->
       <router-link to="/signup">Signup</router-link>
       |
       <router-link to="/login">Login</router-link>
@@ -16,7 +14,7 @@
       <router-link to="/posts">Posts</router-link>
       |
       <router-link to="/posts/new">New Post</router-link>
-    </div>
+    </div> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -70,4 +68,11 @@
   </div>
 </template>
 
-<style></style>
+<style>
+body {
+  font-family: Rockwell Extra Bold, Rockwell Bold, monospace !important;
+  color: grey !important;
+  background-image: url("./assets/stardust.png");
+  text-align: center;
+}
+</style>
