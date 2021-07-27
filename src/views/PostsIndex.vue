@@ -2,7 +2,8 @@
   <div class="posts-index">
     <div class="d-flex flex-column align-items-center">
       <div class="card mb-3" style="max-width: 540px" v-for="post in posts" :key="post.id">
-        <router-link v-bind:to="`/posts/${post.id}`">
+        <div v-bind:class="{ hover: thisPost === post }" v-on:mouseover="thisPost = post">
+          <!-- <router-link v-bind:to="`/posts/${post.id}`"> -->
           <div class="row g-0">
             <div class="col-md-4">
               <img v-bind:src="post.image" class="img-fluid rounded-start" v-bind:alt="post.title" />
@@ -15,7 +16,8 @@
               </div>
             </div>
           </div>
-        </router-link>
+          <!-- </router-link> -->
+        </div>
       </div>
     </div>
 
@@ -45,6 +47,7 @@ export default {
     return {
       message: "Welcome Crumb Cake",
       posts: [1, 2, 3],
+      thisPost: {},
     };
   },
   created: function () {
@@ -66,6 +69,10 @@ export default {
 
 //
 <style>
+.hover {
+  color: aquamarine;
+  background-color: red;
+}
 .post-image-body {
   display: flex;
   align-items: center;
