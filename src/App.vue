@@ -55,9 +55,9 @@
                 User
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="/login">Login</a></li>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                <li><a class="dropdown-item" href="/signup">Signup</a></li>
+                <li v-if="!isLoggedIn()"><a class="dropdown-item" href="/login">Login</a></li>
+                <li v-if="isLoggedIn()"><a class="dropdown-item" href="/logout">Logout</a></li>
+                <li v-if="!isLoggedIn()"><a class="dropdown-item" href="/signup">Signup</a></li>
               </ul>
             </li>
           </ul>
@@ -71,8 +71,19 @@
 <style>
 body {
   font-family: Rockwell Extra Bold, Rockwell Bold, monospace !important;
-  color: grey !important;
+  color: lightgrey !important;
   background-image: url("./assets/stardust.png");
   text-align: center;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) return true;
+      else return false;
+    },
+  },
+};
+</script>
