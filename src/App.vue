@@ -84,6 +84,10 @@ export default {
       if (localStorage.getItem("jwt")) return true;
       else return false;
     },
+    getUserId: function () {
+      if (localStorage.getItem("user_id")) return localStorage.getItem("user_id");
+      else return "no user_id";
+    },
   },
 };
 </script>
